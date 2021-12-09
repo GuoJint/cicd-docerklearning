@@ -1,13 +1,20 @@
 ``` javascript
+// 安装docker
+curl -fsSL get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+// 开启docker
+sudo systemctl start docker
 // 创建一个容器镜像未nginx
 docker container run nginx
 // 查看目前容器目录
 docker container ls/ps
 // 查看目前所有容器包括未启用的
 docker container ls/ps -a
-// 停止指定的容器 停了如何重启？
+// 停止指定的容器 
 docker container stop [container id（通常前2-5个就可以）]
 docker container stop 3d712
+// 重启
+docker restart id
 // 删除指定的容器
 docker container rm  [container id]
 // 查询所有docker的id
