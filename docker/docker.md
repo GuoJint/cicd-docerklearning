@@ -60,9 +60,34 @@ Dockerfile是用于构建docker镜像的文件。
 Dockerfile里包含了构建镜像所需的指令
 Dockerfile有其特定的语法规则（重要）
 
+Dockerfile 命令
+FROM 镜像名
+RUN 执行命令，比如安装某个环境python之类的
+ADD test.js /
+把当前目录下的test.js文件， 放在镜像的根目录下
+CMD ["node","test.js"]
+执行 node test.js命令
+
+不加版本为lastetst
+根据dockerfile文件构建image
+docker image build -t mynode:1.0
+运行image
+docker container run mynode:1.0
+
+dockerfile文件上传dockerhub
+docker image tag mynode mynodecom/mynode   修改文件名规范命名
+mynodecom/mynode  这种形式是dockerhub规范
+docker login  登录
+docker image push mynodecom/mynode     可以通过  mynode:1.0来指定版本
+
+
+
+
+
 //自有文件导入导出(公司内部)
-// 导出
+// 导出  把自己的node导出成一个自己node，导出的镜像如何给别人？
 docker image save node:版本 -o mynode.image
-// 导出
+             导出     :tag  输出  镜像名
+// 导入
 docker image load -i .\mynode.image (所在目录)
 ```
